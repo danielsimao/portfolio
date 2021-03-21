@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Carrois+Gothic");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+}
+
+:root {
+  --color-dark: #2e383f;
+  --color-light: #ececeb;
+  --color-orange: #f9a828;
+  --color-blue: #07617d;
+}
+
+body {
+  /* PAGE */
+  --page-main-background: #2e383f;
+  --page-header-background: #2e383f;
+  --page-footer-background: #2e383f;
+
+  /* HEADER */
+  --header-nav-logo-color: #ececeb;
+  --h-nav-menu-item-color: #ececeb;
+  --h-nav-btn-color: #ececeb;
+
+  /* NAV */
+  --nav-background: #07617d;
+  --nav-btn-color: #ececeb;
+  --nav-menu-item-color: #ececeb;
+  /* #fdf6f6
+  #a5e9e1
+  #388186
+  #2e2b2b */
+}

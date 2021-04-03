@@ -9,7 +9,7 @@ function Menu() {
           <span aria-hidden></span>
         </button>
         <div className="nav">
-          <ul className="text-light font-carrois font-bold text-7xl">
+          <ul className="text-light font-carrois font-bold">
             <li className="mb-12">
               <a>About Me</a>
             </li>
@@ -27,7 +27,7 @@ function Menu() {
           .nav-tgl {
             display: inline-block;
             cursor: pointer;
-            position: fixed;
+            position: absolute;
             z-index: 100;
             width: 55px;
             height: 55px;
@@ -97,13 +97,20 @@ function Menu() {
             content: "";
             width: 100vw;
             height: 100vh;
-            background: var(--nav-background);
+            background: rgb(46, 56, 63);
+            background: radial-gradient(
+              circle,
+              rgba(46, 56, 63, 1) 0%,
+              rgba(25, 78, 96, 1) 61%,
+              rgba(7, 97, 125, 1) 100%
+            );
             transition: all 500ms ease-in-out;
 
             // that's all the pen about
             clip-path: circle(30px at calc(100% - 30px) 30px);
             // for AT
             visibility: hidden;
+            z-index: 99;
           }
 
           .nav ul {
@@ -112,11 +119,13 @@ function Menu() {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            z-index: 99;
           }
 
           .nav ul li {
             text-transform: uppercase;
             color: var(--nav-menu-item-color);
+            font-size: 13vw;
           }
 
           .menu.active .nav ul {

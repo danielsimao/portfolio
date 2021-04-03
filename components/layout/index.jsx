@@ -12,7 +12,7 @@ function Layout({ children }) {
       <style jsx global>
         {`
           .page-wrap {
-            height: 100vh;
+            height: 100%;
             display: grid;
             grid-template-rows: min-content 1fr min-content;
             background: rgb(7, 97, 125);

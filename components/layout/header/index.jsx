@@ -31,7 +31,7 @@ function Header({ className }) {
     <>
       <header className={className}>
         <nav className="grid grid-flow-col">
-          <div className="text-light">
+          <div className="logo text-light">
             <a href="/">
               <Logo />
             </a>
@@ -57,6 +57,10 @@ function Header({ className }) {
         {`
           nav {
             grid-column: 2;
+          }
+
+          .logo {
+            z-index: 100;
           }
         `}
       </style>

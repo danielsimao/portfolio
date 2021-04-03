@@ -5,6 +5,7 @@ module.exports = {
     fontFamily: {
       carrois: ["Carrois Gothic"],
       fira: ["Fira Sans"],
+      roboto: ["Roboto"],
     },
     colors: {
       blue: "var(--color-blue)",

@@ -1,13 +1,35 @@
+import { useEffect, useRef } from "react";
 import Lottie from "react-lottie-player";
-import scrollDown from "../public/assets/scroll-down.json";
+import scrollDown from "../../public/assets/scroll-down.json";
+import Typewriter from "typewriter-effect";
+import { Highlight } from "../highlight";
 
 function Hero() {
   return (
     <>
-      <section>
-        {/* <div className="wave text-3xl">👋</div> */}
-        <div className="hero-title font-fira text-light my-16">
-          I'm a Fullstack Developer based in Portugal
+      <section className="mt-10 mb-32">
+        <div className="wave text-3xl mb-5">👋</div>
+        <h1 className="highlight"></h1>
+        <div className="hero-title font-fira text-light mb-32">
+          Hey! I'm a <br />
+          <Highlight>
+            <Typewriter
+              options={{ loop: true }}
+              onInit={(typewriter) => {
+                typewriter
+                  .typeString("Fullstack")
+                  .pauseFor(2000)
+                  .deleteAll()
+                  .typeString("Frontend")
+                  .pauseFor(2000)
+                  .deleteAll()
+                  .typeString("Backend")
+                  .pauseFor(2000)
+                  .start();
+              }}
+            />
+          </Highlight>{" "}
+          <br /> Developer based in Portugal
         </div>
         <Lottie
           className="m-auto"
@@ -17,11 +39,16 @@ function Hero() {
           style={{ width: 50, height: 50 }}
         />
       </section>
-      <style jsx>{`
+      <style jsx global>{`
         .hero-title {
           font-size: 10vw;
-          font-style: oblique;
           line-height: 1.1;
+        }
+
+        .hero-title .highlight {
+          font-size: 13vw;
+          font-style: oblique;
+          display: inline-block;
         }
 
         .wave {

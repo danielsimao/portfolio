@@ -1,21 +1,12 @@
 import { Menu } from "./menu";
+import Link from "next/link";
+import { forwardRef } from "react";
 
-const Logo = () => (
-  // <svg
-  //   width="24"
-  //   height="24"
-  //   viewBox="0 0 68 87"
-  //   fill="none"
-  //   xmlns="http://www.w3.org/2000/svg"
-  // >
-  //   <path
-  //     d="M25.89 86.16C21.7842 87.2254 17.4503 87.0057 13.4734 85.5304C9.49638 84.0551 6.06768 81.3954 3.64999 77.91C2.16554 75.8333 1.1115 73.4806 0.549924 70.9904C-0.0116561 68.5002 -0.0694323 65.9229 0.379994 63.41C0.527508 62.5926 0.734729 61.7871 0.999993 61L1.48999 59.5L2.82999 60.5C5.91007 62.7486 9.34867 64.4595 13 65.56L14 65.85L13.91 66.85C13.8138 68.2211 14.1993 69.5828 15 70.7C15.7295 71.7485 16.7628 72.5483 17.9607 72.9917C19.1586 73.4351 20.4636 73.5008 21.7 73.18C22.2653 73.028 22.8047 72.7921 23.3 72.48L49.34 55.86C49.9795 55.4576 50.5279 54.9259 50.9498 54.299C51.3717 53.6721 51.6579 52.964 51.79 52.22C51.9233 51.4617 51.9035 50.6844 51.7317 49.9339C51.56 49.1834 51.2398 48.4748 50.79 47.85C50.0605 46.8015 49.0272 46.0017 47.8293 45.5583C46.6314 45.1149 45.3264 45.0492 44.09 45.37C43.524 45.5201 42.9843 45.7561 42.49 46.07L32.49 52.42C30.8545 53.457 29.0707 54.2393 27.2 54.74C23.101 55.799 18.7759 55.577 14.8069 54.1038C10.8379 52.6306 7.41537 49.977 4.99999 46.5C3.52 44.4213 2.47015 42.0679 1.91205 39.5779C1.35396 37.0879 1.29886 34.5116 1.74999 32C2.19159 29.5348 3.14275 27.1889 4.54267 25.1123C5.94258 23.0357 7.76044 21.274 9.87999 19.94L36 3.32C37.6259 2.28504 39.3994 1.5028 41.26 1C45.3643 -0.066139 49.697 0.153326 53.6725 1.62874C57.6481 3.10415 61.0749 5.76439 63.49 9.25C64.9762 11.326 66.032 13.6783 66.5953 16.1685C67.1586 18.6587 67.218 21.2365 66.77 23.75C66.614 24.5721 66.4069 25.3837 66.15 26.18L65.65 27.68L64.32 26.68C61.2336 24.4142 57.7845 22.6897 54.12 21.58L53.12 21.29L53.21 20.29C53.3255 18.9121 52.95 17.5378 52.15 16.41C51.4159 15.3795 50.3855 14.597 49.1958 14.1665C48.0061 13.736 46.7135 13.6779 45.49 14C44.924 14.1501 44.3844 14.3861 43.89 14.7L17.8 31.29C17.1628 31.6927 16.616 32.2233 16.1943 32.8481C15.7726 33.4729 15.4851 34.1784 15.35 34.92C15.2193 35.6799 15.2403 36.4583 15.412 37.21C15.5836 37.9618 15.9024 38.6721 16.35 39.3C17.0762 40.339 18.1011 41.1326 19.2888 41.5755C20.4765 42.0184 21.7708 42.0898 23 41.78C23.5646 41.6259 24.1037 41.3901 24.6 41.08L34.6 34.74C36.2343 33.6916 38.0226 32.9054 39.9 32.41C44.0033 31.3414 48.3357 31.5586 52.3115 33.0323C56.2873 34.506 59.7146 37.1651 62.13 40.65C63.6152 42.7265 64.6704 45.0789 65.2336 47.5689C65.7969 50.059 65.8569 52.6365 65.41 55.15C64.9684 57.6152 64.0172 59.9611 62.6173 62.0377C61.2174 64.1143 59.3995 65.876 57.28 67.21L31.19 83.83C29.5514 84.8704 27.7644 85.656 25.89 86.16"
-  //     fill="currentColor"
-  //   />
-  // </svg>
+// eslint-disable-next-line react/display-name
+const Logo = forwardRef((_, ref) => (
   <svg
-    width="46"
-    height="30"
+    ref={ref}
+    className="h-8 w-auto"
     viewBox="0 0 668 525"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -25,38 +16,55 @@ const Logo = () => (
       fill="white"
     />
   </svg>
-);
+));
 function Header({ className }) {
   return (
     <>
-      <header className={className}>
-        <nav className="grid grid-flow-col">
-          <div className="text-light">
-            <a href="/">
+      <header className={`${className}`}>
+        <nav className="max-w-6xl m-auto">
+          <div className="nav-left logo text-light">
+            <Link href="/" passHref>
               <Logo />
-            </a>
+            </Link>
           </div>
-          <ul className="text-light font-carrois text-lg hidden md:flex md:flex-row md:justify-evenly">
+          <ul className="nav-center text-light font-carrois text-lg hidden md:flex md:flex-row md:justify-evenly">
             <li>
-              <a>About Me</a>
+              <a href="#about-me">About Me</a>
             </li>
             <li>
-              <a>Experience</a>
+              <a href="#experience">Experience</a>
             </li>
             <li>
-              <a>Contact</a>
+              <a href="#skills">Skills</a>
             </li>
           </ul>
-          <div className="md:hidden">
-            <Menu />
+          <div className="nav-right">
+            <Menu className="md:hidden" />
           </div>
-          <div className=""></div>
         </nav>
       </header>
       <style jsx>
         {`
           nav {
-            grid-column: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-areas: "nav-left nav-center nav-center nav-right";
+          }
+
+          nav .nav-left {
+            grid-area: nav-left;
+          }
+
+          nav .nav-center {
+            grid-area: nav-center;
+          }
+
+          nav .nav-right {
+            grid-area: nav-right;
+          }
+
+          .logo {
+            z-index: 100;
           }
         `}
       </style>

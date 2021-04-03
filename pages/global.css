@@ -15,11 +15,17 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
 :root {
   --color-dark: #2e383f;
   --color-light: #ececeb;
   --color-orange: #f9a828;
   --color-blue: #07617d;
+  --color-blue-light: #357d93;
 }
 
 body {
@@ -41,4 +47,6 @@ body {
   #a5e9e1
   #388186
   #2e2b2b */
+
+  background-color: var(--color-dark);
 }

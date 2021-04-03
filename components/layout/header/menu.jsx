@@ -1,23 +1,58 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "../../../utils/media-query";
+
 //https://codepen.io/ahmedhrayyan/pen/EremLG
-function Menu() {
+function Menu({ className }) {
   const [isOpen, setOpen] = useState(false);
+  const isTabletOrDesktop = useMediaQuery(768);
+
+  function handleToggle() {
+    window.scrollTo({ top: 0 });
+    setOpen((s) => !s);
+  }
+
+  function handleClickAnchor(e) {
+    setOpen((s) => !s);
+    setTimeout(
+      () => document.getElementById(e.target.title).scrollIntoView(),
+      500
+    );
+  }
+
+  useEffect(() => {
+    if (isOpen && !isTabletOrDesktop) {
+      console.log(isOpen, isTabletOrDesktop);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpen, isTabletOrDesktop]);
+
   return (
     <>
-      <div className={`menu ${isOpen ? "active" : ""}`}>
-        <button onClick={() => setOpen((s) => !s)} className="nav-tgl">
+      <div className={`${className} menu ${isOpen ? "active" : ""}`}>
+        <button onClick={handleToggle} className="nav-tgl">
           <span aria-hidden></span>
         </button>
         <div className="nav">
-          <ul className="text-light font-carrois font-bold text-7xl">
-            <li className="mb-12">
-              <a>About Me</a>
-            </li>
-            <li className="mb-12">
-              <a>Experience</a>
+          <ul className="text-light font-carrois font-bold">
+            <li>
+              <a onClick={handleClickAnchor} title="about-me">
+                About Me
+              </a>
             </li>
             <li>
-              <a>Contact</a>
+              <a onClick={handleClickAnchor} title="experience">
+                Experience
+              </a>
+            </li>
+            <li>
+              <a onClick={handleClickAnchor} title="skills">
+                Skills
+              </a>
+            </li>
+            <li>
+              <a href="mailto:rui.daniel.simao@gmail.com">Contact</a>
             </li>
           </ul>
         </div>
@@ -27,7 +62,7 @@ function Menu() {
           .nav-tgl {
             display: inline-block;
             cursor: pointer;
-            position: fixed;
+            position: absolute;
             z-index: 100;
             width: 55px;
             height: 55px;
@@ -97,13 +132,20 @@ function Menu() {
             content: "";
             width: 100vw;
             height: 100vh;
-            background: var(--nav-background);
+            background: rgb(46, 56, 63);
+            background: radial-gradient(
+              circle,
+              rgba(46, 56, 63, 1) 0%,
+              rgba(25, 78, 96, 1) 61%,
+              rgba(7, 97, 125, 1) 100%
+            );
             transition: all 500ms ease-in-out;
 
             // that's all the pen about
             clip-path: circle(30px at calc(100% - 30px) 30px);
             // for AT
             visibility: hidden;
+            z-index: 99;
           }
 
           .nav ul {
@@ -112,15 +154,36 @@ function Menu() {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            z-index: 99;
           }
 
           .nav ul li {
             text-transform: uppercase;
             color: var(--nav-menu-item-color);
+            font-size: 13vw;
+          }
+
+          @media (min-width: 530px) {
+            .nav ul li {
+              font-size: 10vw;
+            }
+          }
+
+          @keyframes visibility-animation {
+            to {
+              visibility: visible;
+            }
           }
 
           .menu.active .nav ul {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            gap: 3rem;
+            animation: visibility-animation 0s 0.2s forwards;
+            visibility: hidden;
           }
 
           // when it gits activated

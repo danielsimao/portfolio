@@ -1,18 +1,23 @@
 /* eslint-disable react/react-in-jsx-scope */
 import "./global.css";
 import Head from "next/head";
-import { Layout } from "../components";
+import smoothscroll from "smoothscroll-polyfill";
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      smoothscroll.polyfill();
+    }
+  }, []);
+
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Daniel Simão</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <Component {...pageProps} />
     </>
   );
 }

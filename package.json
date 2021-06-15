@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint:next": "next lint",
     "lint": "eslint . --ext .jsx --ignore-path .gitignore",
     "lint:fix": "npm run lint -- --fix",
     "export": "next export"
@@ -24,6 +25,7 @@
     "@next/eslint-plugin-next": "^10.2.3",
     "autoprefixer": "^10.2.5",
     "eslint": "^7.22.0",
+    "eslint-config-next": "^11.0.0",
     "eslint-plugin-next": "^0.0.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.22.0",

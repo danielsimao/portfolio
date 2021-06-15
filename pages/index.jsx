@@ -1,7 +1,6 @@
-import { Hero, AboutMe, Experience, Skills } from "../components";
-import { ScrollTop } from "../components/scroll-top";
-
+import { AboutMe, Experience, Hero, Skills } from "../components";
 import { Layout } from "../components/layout";
+import { ScrollTop } from "../components/scroll-top";
 
 export default function Home() {
   return (
@@ -12,11 +11,6 @@ export default function Home() {
         <Experience></Experience>
         <Skills></Skills>
         <ScrollTop></ScrollTop>
-        {/* <div className="panel">
-          <h1 className="font-fira text-2xl text-light">
-            Daniel Simão <br />{" "}
-          </h1>
-        </div> */}
       </Layout>
 
       <style jsx global>{`
@@ -26,21 +20,6 @@ export default function Home() {
 
         section > .text-left {
           padding-top: 1rem;
-        }
-
-         {
-          /* .panel {
-          position: fixed;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          height: 100vh;
-          width: 100vw;
-          background-color: var(--color-dark);
-          z-index: 1000;
-          overflow: hidden;
-        } */
         }
       `}</style>
     </>

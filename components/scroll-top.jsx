@@ -1,22 +1,21 @@
-import { useEffect, useMemo, useState } from "react";
-import Lottie from "react-lottie-player";
-import scrollEase from "../public/assets/scrolling-easey.json";
+import { useEffect, useMemo, useState } from 'react';
+import Lottie from 'react-lottie-player';
+import scrollEase from '../public/assets/scrolling-easey.json';
 
 const LOTTIE_STAGES = [
   [0, 150],
   [155, 199],
 ];
 
-export function ScrollTop() {
+export default function ScrollTop() {
   const [stage, setStage] = useState(1);
   const [showScroll, setShowScroll] = useState(false);
   const [isComplete, setComplete] = useState(false);
   const elDistanceToTop = useMemo(
     () =>
-      typeof window !== "undefined" &&
-      window.pageYOffset +
-        document?.querySelector("#experience")?.getBoundingClientRect().top,
-    []
+      typeof window !== 'undefined' &&
+      window.pageYOffset + document?.querySelector('#experience')?.getBoundingClientRect().top,
+    [],
   );
 
   useEffect(() => {
@@ -30,11 +29,11 @@ export function ScrollTop() {
       }
     }
 
-    window.addEventListener("scroll", checkScrollTop);
+    window.addEventListener('scroll', checkScrollTop);
   });
 
   function scrollTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   function handleClick() {
@@ -53,27 +52,31 @@ export function ScrollTop() {
 
   return (
     <>
-      <div
-        className={`fixed z-20 bottom-1 right-1 rounded-full h-14 w-14 p-1 bg-dark shadow-md transition ${
-          display ? "opacity-100" : "opacity-0"
+      <button
+        onClick={handleClick}
+        aria-label="scroll-top"
+        type="button"
+        className={`fixed z-20 bottom-1 right-1 rounded-full h-14 w-14 p-1 bg-dark shadow-md transition scroll-top ${
+          display ? 'opacity-100' : 'opacity-0'
         }`}
       >
         {display && (
           <Lottie
+            onComplete={handleComplete}
             segments={lottieSegment}
             animationData={scrollEase}
             loop={false}
             play
-            onClick={handleClick}
-            onComplete={handleComplete}
           />
         )}
-      </div>
-      <style jsx>{`
-        .scroll-top {
-          transition: all 0.3s ease;
-        }
-      `}</style>
+      </button>
+      <style jsx>
+        {`
+          .scroll-top {
+            outline: none;
+          }
+        `}
+      </style>
     </>
   );
 }

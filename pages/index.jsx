@@ -1,27 +1,32 @@
-import { AboutMe, Experience, Hero, Skills } from "../components";
-import { Layout } from "../components/layout";
-import { ScrollTop } from "../components/scroll-top";
+import Layout from '../components/layout';
+import ScrollTop from '../components/scroll-top';
+import AboutMe from '../components/sections/about-me';
+import Experience from '../components/sections/experience';
+import Hero from '../components/sections/hero';
+import Skills from '../components/sections/skills';
 
 export default function Home() {
   return (
     <>
       <Layout>
-        <Hero></Hero>
-        <AboutMe></AboutMe>
-        <Experience></Experience>
-        <Skills></Skills>
-        <ScrollTop></ScrollTop>
+        <Hero />
+        <AboutMe />
+        <Experience />
+        <Skills />
+        <ScrollTop />
       </Layout>
 
-      <style jsx global>{`
-        section:not(:last-of-type) {
-          margin-bottom: 2.5rem;
-        }
+      <style jsx global>
+        {`
+          section:not(:last-of-type) {
+            margin-bottom: 2.5rem;
+          }
 
-        section > .text-left {
-          padding-top: 1rem;
-        }
-      `}</style>
+          section > .text-left {
+            padding-top: 1rem;
+          }
+        `}
+      </style>
     </>
   );
 }

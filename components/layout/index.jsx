@@ -1,7 +1,7 @@
-import { Footer } from "./footer";
-import { Header } from "./header";
+import Footer from './footer';
+import Header from './header';
 
-function Layout({ children }) {
+export default function Layout({ children }) {
   return (
     <>
       <div className="page-wrap">
@@ -70,5 +70,3 @@ function Layout({ children }) {
     </>
   );
 }
-
-export { Layout };

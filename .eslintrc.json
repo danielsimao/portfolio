@@ -8,7 +8,10 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:@next/next/recommended"
+    "plugin:@next/next/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:prettier/recommended",
+    "airbnb"
   ],
   "globals": {
     "Atomics": "readonly",
@@ -21,11 +24,16 @@
     "ecmaVersion": 11,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier", "react-hooks", "@next/next"],
+  "plugins": ["react", "prettier", "react-hooks", "@next/next", "jsx-a11y"],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "object-curly-newline": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "implicit-arrow-linebreak": "off",
+    "operator-linebreak": "off",
+    "react/jsx-props-no-spreading": "off"
   },
   "settings": {
     "react": {

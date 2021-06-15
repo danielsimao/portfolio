@@ -1,51 +1,52 @@
-import Image from "next/image";
-import { BasicReveal } from "../../utils/reveal";
-import { Highlight } from "../highlight";
+import Image from 'next/image';
+import BasicReveal from '../../utils/reveal';
+import Highlight from '../highlight';
 
 const data = [
-  { name: "React", link: "react" },
-  { name: "Node.js", link: "nodejs-icon" },
-  { name: "Sass", link: "sass" },
-  { name: "Next", link: "nextjs-icon" },
-  { name: "Vercel", link: "vercel-icon" },
-  { name: "GraphQL", link: "graphql" },
-  { name: "Web Components", link: "webcomponents" },
-  { name: "Sentry", link: "sentry-icon" },
-  { name: "npm", link: "npm-icon" },
-  { name: "Figma", link: "figma" },
-  { name: "Docker", link: "docker-icon" },
-  { name: "Visual Studio", link: "visual-studio-code" },
-  { name: "Prisma", link: "prisma" },
-  { name: "Storybook", link: "storybook-icon" },
-  { name: "Jest", link: "jest" },
-  { name: "Nest.js", link: "nestjs" },
-  { name: "Rollup.js", link: "rollupjs" },
-  { name: "Webpack", link: "webpack" },
-  { name: "Redux", link: "redux" },
-  { name: "Typescript", link: "typescript-icon" },
-  { name: "Stripe", link: "stripe" },
-  { name: "ESLint", link: "eslint" },
-  { name: "Prettier", link: "prettier" },
+  { name: 'React', link: 'react' },
+  { name: 'Node.js', link: 'nodejs-icon' },
+  { name: 'Sass', link: 'sass' },
+  { name: 'Next', link: 'nextjs-icon' },
+  { name: 'Vercel', link: 'vercel-icon' },
+  { name: 'GraphQL', link: 'graphql' },
+  { name: 'Web Components', link: 'webcomponents' },
+  { name: 'Sentry', link: 'sentry-icon' },
+  { name: 'npm', link: 'npm-icon' },
+  { name: 'Figma', link: 'figma' },
+  { name: 'Docker', link: 'docker-icon' },
+  { name: 'Visual Studio', link: 'visual-studio-code' },
+  { name: 'Prisma', link: 'prisma' },
+  { name: 'Storybook', link: 'storybook-icon' },
+  { name: 'Jest', link: 'jest' },
+  { name: 'Nest.js', link: 'nestjs' },
+  { name: 'Rollup.js', link: 'rollupjs' },
+  { name: 'Webpack', link: 'webpack' },
+  { name: 'Redux', link: 'redux' },
+  { name: 'Typescript', link: 'typescript-icon' },
+  { name: 'Stripe', link: 'stripe' },
+  { name: 'ESLint', link: 'eslint' },
+  { name: 'Prettier', link: 'prettier' },
 ];
 
-function Skills() {
+export default function Skills() {
   return (
     <>
       <section className="z-20" id="skills">
         <Highlight className="text-3xl mb-5">Skills</Highlight>
         <BasicReveal trigger={<div />}>
-          {data.map((e, i) => (
+          {data.map((e) => (
             <span
-              key={i}
+              key={e.name}
               className="inline-flex items-center px-3 py-2 m-1 rounded-full text-light font-roboto bg-dark"
             >
               <span className="inline-flex items-center mr-1">
                 <Image
+                  alt={e.name}
                   layout="fixed"
                   width={24}
                   height={24}
                   src={`https://cdn.svgporn.com/logos/${e.link}.svg`}
-                ></Image>
+                />
               </span>
               {e.name}
             </span>
@@ -53,14 +54,9 @@ function Skills() {
 
           <span className="inline-flex items-center px-3 py-2 m-1 rounded-full text-light font-roboto bg-dark">
             <span className="inline-flex items-center mr-1">
-              <svg
-                width="24"
-                height="24"
-                id="logo-stencil"
-                viewBox="0 0 512 512"
-              >
+              <svg width="24" height="24" id="logo-stencil" viewBox="0 0 512 512">
                 <title>Logo Stencil</title>
-                <path d="M188.8 334.07h197.33L279.47 448H83.2zM512 199H106.61L0 313h405.39zM232.2 64h196.6L322.62 177.93H125.87z"></path>
+                <path d="M188.8 334.07h197.33L279.47 448H83.2zM512 199H106.61L0 313h405.39zM232.2 64h196.6L322.62 177.93H125.87z" />
               </svg>
             </span>
             Stencil
@@ -90,30 +86,31 @@ function Skills() {
           <span className="inline-flex items-center px-3 py-2 m-1 rounded-full text-light font-roboto bg-dark">
             <span className="inline-flex items-center mr-1">
               <Image
+                alt="Testing Library"
                 layout="fixed"
                 width={24}
                 height={24}
-                src={"/assets/octopus.png"}
-              ></Image>
+                src="/assets/octopus.png"
+              />
             </span>
             Testing Library
           </span>
         </BasicReveal>
       </section>
-      <style jsx>{`
-        .avatar {
-          border-radius: 50%;
-        }
+      <style jsx>
+        {`
+          .avatar {
+            border-radius: 50%;
+          }
 
-        .highlight {
-          text-transform: uppercase;
-          background: -webkit-linear-gradient(var(--color-orange), #ffc465);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-      `}</style>
+          .highlight {
+            text-transform: uppercase;
+            background: -webkit-linear-gradient(var(--color-orange), #ffc465);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+        `}
+      </style>
     </>
   );
 }
-
-export { Skills };

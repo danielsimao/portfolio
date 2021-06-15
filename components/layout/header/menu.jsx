@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { useMediaQuery } from "../../../utils/media-query";
+import { useEffect, useState } from 'react';
+import useMediaQuery from '../../../utils/media-query';
 
-//https://codepen.io/ahmedhrayyan/pen/EremLG
-function Menu({ className }) {
+// https://codepen.io/ahmedhrayyan/pen/EremLG
+export default function Menu({ className }) {
   const [isOpen, setOpen] = useState(false);
   const isTabletOrDesktop = useMediaQuery(768);
 
@@ -13,46 +13,44 @@ function Menu({ className }) {
 
   function handleClickAnchor(e) {
     setOpen((s) => !s);
-    setTimeout(
-      () => document.getElementById(e.target.title).scrollIntoView(),
-      500
-    );
+    setTimeout(() => document.getElementById(e.target.title).scrollIntoView(), 500);
   }
 
   useEffect(() => {
     if (isOpen && !isTabletOrDesktop) {
-      console.log(isOpen, isTabletOrDesktop);
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     }
   }, [isOpen, isTabletOrDesktop]);
 
   return (
     <>
-      <div className={`${className} menu ${isOpen ? "active" : ""}`}>
-        <button onClick={handleToggle} className="nav-tgl">
-          <span aria-hidden></span>
+      <div className={`${className} menu ${isOpen ? 'active' : ''}`}>
+        <button type="button" onClick={handleToggle} aria-label="menu" className="nav-tgl">
+          <span aria-hidden />
         </button>
         <div className="nav">
           <ul className="text-light font-carrois font-bold">
             <li>
-              <a onClick={handleClickAnchor} title="about-me">
+              <button type="button" onClick={handleClickAnchor} title="about-me">
                 About Me
-              </a>
+              </button>
             </li>
             <li>
-              <a onClick={handleClickAnchor} title="experience">
+              <button type="button" onClick={handleClickAnchor} title="experience">
                 Experience
-              </a>
+              </button>
             </li>
             <li>
-              <a onClick={handleClickAnchor} title="skills">
+              <button type="button" onClick={handleClickAnchor} title="skills">
                 Skills
-              </a>
+              </button>
             </li>
             <li>
-              <a href="mailto:rui.daniel.simao@gmail.com">Contact</a>
+              <button type="button" href="mailto:rui.daniel.simao@gmail.com">
+                Contact
+              </button>
             </li>
           </ul>
         </div>
@@ -91,7 +89,7 @@ function Menu({ className }) {
           .nav-tgl > span:after {
             display: inline-block;
             position: absolute;
-            content: "";
+            content: '';
             height: 2px;
             border-radius: 1px;
             background: var(--h-nav-btn-color);
@@ -129,7 +127,7 @@ function Menu({ className }) {
             position: fixed;
             top: 0;
             left: 0;
-            content: "";
+            content: '';
             width: 100vw;
             height: 100vh;
             background: rgb(46, 56, 63);
@@ -157,14 +155,15 @@ function Menu({ className }) {
             z-index: 99;
           }
 
-          .nav ul li {
+          .nav ul li button {
             text-transform: uppercase;
             color: var(--nav-menu-item-color);
             font-size: 13vw;
+            outline: none;
           }
 
           @media (min-width: 530px) {
-            .nav ul li {
+            .nav ul li button {
               font-size: 10vw;
             }
           }
@@ -223,5 +222,3 @@ function Menu({ className }) {
     </>
   );
 }
-
-export { Menu };

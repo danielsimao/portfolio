@@ -14,8 +14,8 @@ export default function Hero() {
             <Image
               alt="avatar"
               placeholder="blur"
-              height={100}
-              width={100}
+              height={750}
+              width={750}
               layout="responsive"
               className="avatar"
               src={avatar}
@@ -28,7 +28,7 @@ export default function Hero() {
             👋
           </span>
         </div>
-        <div className="hero-description text-4xl font-fira text-light mt-8 sm:px-32 md:text-5xl md:px-40">
+        <h1 className="hero-description text-4xl font-fira text-light mt-8 sm:px-32 md:text-5xl md:px-40">
           I&apos;m a <br />
           <Highlight revealAnimation={false} className="inline-block italic">
             <Typewriter
@@ -48,7 +48,7 @@ export default function Hero() {
             />
           </Highlight>
           <br /> Developer from Portugal
-        </div>
+        </h1>
         <Lottie
           className="m-auto mt-20"
           loop

@@ -1,9 +1,8 @@
 /* eslint-disable react/react-in-jsx-scope */
-import './global.css';
-import Head from 'next/head';
-import smoothscroll from 'smoothscroll-polyfill';
-import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import smoothscroll from 'smoothscroll-polyfill';
+import './global.css';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -26,14 +25,7 @@ function MyApp({ Component, pageProps }) {
     };
   }, [router.events]);
 
-  return (
-    <>
-      <Head>
-        <title>Daniel Simão</title>
-      </Head>
-      <Component {...pageProps} />
-    </>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;

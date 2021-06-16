@@ -11,15 +11,16 @@ export default function AboutMe() {
             <p className="mb-5 text-light font-carrois text-lg text-bold">
               I&apos;m a Fullstack Developer from Portugal, passionate about building beautiful
               interactive user-friendly experiences. With 4+ years in the game, frontend is my jam,
-              but I know my way in the backend.
+              but I know my way in the backend suborbs.
             </p>
             <p className="mb-5 text-light font-carrois text-lg text-bold">
-              I&apos;m a problem solving enthusiast, collaborative and always looking forward to
-              improve myself and help others.
+              I&apos;m a problem solving enthusiast, apolagistic of working in collaborative manner
+              and always looking forward to improve myself and help others.
             </p>
             <p className="text-light font-carrois text-lg text-bold">
               I&apos;m a retired lineman, with the weird tradition of rewatching Lord of the Rings
-              every single year. I like to find myself with a bodyboard in the nearest beach.
+              every single year. When I&apos;m not coding I like to find myself with a bodyboard in
+              the nearest beach.
             </p>
           </div>
         </BasicReveal>

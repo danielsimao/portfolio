@@ -51,32 +51,25 @@ export default function ScrollTop() {
   const display = showScroll && !isComplete;
 
   return (
-    <>
-      <button
-        onClick={handleClick}
-        aria-label="scroll-top"
-        type="button"
-        className={`fixed z-20 bottom-1 right-1 rounded-full h-14 w-14 p-1 bg-dark shadow-md transition scroll-top ${
-          display ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
-        {display && (
-          <Lottie
-            onComplete={handleComplete}
-            segments={lottieSegment}
-            animationData={scrollEase}
-            loop={false}
-            play
-          />
-        )}
-      </button>
-      <style jsx>
-        {`
-          .scroll-top {
-            outline: none;
-          }
-        `}
-      </style>
-    </>
+    <div
+      tabIndex={0}
+      onKeyPress={handleClick}
+      onClick={handleClick}
+      aria-label="scroll-top"
+      role="button"
+      className={`fixed z-20 bottom-1 right-1 rounded-full h-14 w-14 p-1 bg-dark shadow-md transition ${
+        display ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
+      {display && (
+        <Lottie
+          onComplete={handleComplete}
+          segments={lottieSegment}
+          animationData={scrollEase}
+          loop={false}
+          play
+        />
+      )}
+    </div>
   );
 }

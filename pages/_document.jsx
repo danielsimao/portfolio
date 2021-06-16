@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { GA_TRACKING_ID } from '../utils/gtag';
 
 class MyDocument extends Document {
@@ -10,6 +10,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
+        <title>Daniel Simão - Fullstack Developer</title>
         <Head>
           <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
@@ -18,8 +19,28 @@ class MyDocument extends Document {
           <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#da532c" />
           <meta name="theme-color" content="#ffffff" />
+
+          <meta name="title" content="Daniel Simão - Fullstack Developer" />
           <meta name="description" content="Daniel Simão is a Fullstack Developer from Portugal" />
-          {/* font */}
+
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://danielsimao.dev/" />
+          <meta property="og:title" content="Daniel Simão - Fullstack Developer" />
+          <meta
+            property="og:description"
+            content="Daniel Simão is a Fullstack Developer from Portugal"
+          />
+          <meta property="og:image" content="" />
+
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://danielsimao.dev/" />
+          <meta property="twitter:title" content="Daniel Simão - Fullstack Developer" />
+          <meta
+            property="twitter:description"
+            content="Daniel Simão is a Fullstack Developer from Portugal"
+          />
+          <meta property="twitter:image" content="" />
+
           <link
             href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@900&display=swap"
             rel="stylesheet"

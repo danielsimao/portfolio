@@ -160,6 +160,7 @@ export default function Menu({ className }) {
             color: var(--nav-menu-item-color);
             font-size: 13vw;
             outline: none;
+            font-weight: bold;
           }
 
           @media (min-width: 530px) {

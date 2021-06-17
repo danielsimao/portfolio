@@ -1,10 +1,33 @@
+/* eslint-disable class-methods-use-this */
+/* eslint-disable react/no-danger */
 import Document, { Head, Html, Main, NextScript } from 'next/document';
+import * as snippet from '@segment/snippet';
 import { GA_TRACKING_ID } from '../utils/gtag';
 
+const {
+  // This write key is associated with https://segment.com/nextjs-example/sources/nextjs.
+  ANALYTICS_WRITE_KEY = 'NPsk1GimHq09s7egCUlv7D0tqtUAU5wa',
+  NODE_ENV = 'development',
+} = process.env;
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
+  }
+
+  renderSnippet() {
+    const opts = {
+      apiKey: ANALYTICS_WRITE_KEY,
+      // note: the page option only covers SSR tracking.
+      // Page.js is used to track other events using `window.analytics.page()`
+      page: true,
+    };
+
+    if (NODE_ENV === 'development') {
+      return snippet.max(opts);
+    }
+
+    return snippet.min(opts);
   }
 
   render() {
@@ -55,7 +78,6 @@ class MyDocument extends Document {
           />
           <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`} />
           <script
-            // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: `
             window.dataLayer = window.dataLayer || [];
@@ -67,6 +89,7 @@ class MyDocument extends Document {
           `,
             }}
           />
+          <script dangerouslySetInnerHTML={{ __html: this.renderSnippet() }} />
         </Head>
         <body>
           <Main />

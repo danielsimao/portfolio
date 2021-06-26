@@ -111,7 +111,7 @@ export default function Footer({ className }) {
         </a>
       </div>
       <Lottie
-        className="absolute w-screen bottom-0 left-0"
+        className="absolute w-screen bottom-0 left-0 md:-bottom-32"
         loop
         animationData={bubbles}
         play

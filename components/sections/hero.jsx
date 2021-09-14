@@ -3,7 +3,7 @@ import Lottie from 'react-lottie-player';
 import Typewriter from 'typewriter-effect';
 import scrollDown from '../../public/assets/scroll-down.json';
 import Highlight from '../highlight';
-import avatar from '../../public/assets/avatar.jpeg';
+import avatar from '../../public/assets/avatar.jpg';
 
 export default function Hero() {
   return (

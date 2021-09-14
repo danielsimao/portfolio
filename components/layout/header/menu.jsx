@@ -48,7 +48,10 @@ export default function Menu({ className }) {
               </button>
             </li>
             <li>
-              <button type="button" href="mailto:rui.daniel.simao@gmail.com">
+              <button
+                type="button"
+                onClick={() => window.open('mailto:rui.daniel.simao@gmail.com')}
+              >
                 Contact
               </button>
             </li>

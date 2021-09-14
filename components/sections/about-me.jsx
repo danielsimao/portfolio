@@ -9,9 +9,9 @@ export default function AboutMe() {
         <BasicReveal trigger={<div className="text-left" />}>
           <div>
             <p className="mb-5 text-light font-carrois text-lg text-bold">
-              I&apos;m a Fullstack Developer from Portugal, passionate about building beautiful
-              interactive user-friendly experiences. With 4+ years in the game, frontend is my jam,
-              but I know my way in the backend suburbs.
+              I&apos;m a Senior Fullstack Developer from Portugal, passionate about building
+              beautiful interactive user-friendly experiences. With 4+ years in the game, frontend
+              is my jam, but I know my way in the backend suburbs.
             </p>
             <p className="mb-5 text-light font-carrois text-lg text-bold">
               I&apos;m a problem solving enthusiast, apolagistic of working in collaborative manner

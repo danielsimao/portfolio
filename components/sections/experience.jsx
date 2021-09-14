@@ -4,9 +4,17 @@ import Highlight from '../highlight';
 
 const data = [
   {
+    company: 'Vertrical',
+    position: 'Senior Fullstack Developer',
+    time: 'Aug 2021 - Present',
+    description:
+      'Senior Fullstack Developer for a company that helps fast growing health tech companies deploy microservices that follow best practices in patient data management.',
+    image: '/assets/vertrical.jpeg',
+  },
+  {
     company: 'Hostelworld',
     position: 'Fullstack Developer',
-    time: 'Jul 2019 - Present',
+    time: 'Jul 2019 - Ago 2021',
     description:
       'Fullstack Developer for one of the leading global Online Travel Agency (OTA). Revamped an API, created a React Component Library and a new platform that brings experiences/activities all across world to Hostelworld.',
     image: '/assets/hostelworld.jpeg',
@@ -30,7 +38,7 @@ const data = [
 
   {
     company: 'Sonae',
-    position: 'Intern/Programmer',
+    position: 'Intern Fullstack Developer',
     time: 'Jul 2017 - Jul 2018',
     description:
       'Started as an intern but soon was invited to work part-time while studying, where I developed a variety of statistics dashboards in a Product Development and Control platform for the biggest retailer in Portugal.',
@@ -51,13 +59,11 @@ export default function Experience() {
     <>
       <section className="z-20" id="experience">
         <Highlight className="text-3xl mb-5">Experience</Highlight>
-        <div className="grid grid-flow-row grid-cols-1 gap-4 auto-rows-fr md:grid-cols-4 last:col-span-4">
+        <div className="grid grid-flow-row grid-cols-1 gap-4 auto-rows-fr md:grid-cols-4">
           {data.map((e) => (
             <BasicReveal
               key={e.company}
-              trigger={
-                <div className="flex flex-col md:col-span-2 experience-card h-full w-full" />
-              }
+              trigger={<div className="flex flex-col md:col-span-2 h-full w-full" />}
             >
               <div className="h-full w-full rounded-lg bg-blue-light shadow-md p-4 text-left">
                 <div className="inline-flex border-orange border-4 rounded-xl">
@@ -81,15 +87,6 @@ export default function Experience() {
           ))}
         </div>
       </section>
-      <style jsx>
-        {`
-          @media (min-width: 768px) {
-            .experience-card:last-of-type {
-              grid-column-start: 2;
-            }
-          }
-        `}
-      </style>
     </>
   );
 }

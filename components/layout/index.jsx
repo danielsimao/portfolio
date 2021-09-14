@@ -22,7 +22,6 @@ export default function Layout({ children }) {
               rgba(28, 74, 91, 1) 50%,
               rgba(46, 56, 63, 1) 100%
             );
-            overflow: hidden;
           }
 
           .page-wrap > * {

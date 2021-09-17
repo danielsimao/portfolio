@@ -110,13 +110,9 @@ export default function Footer({ className }) {
           <Contact />
         </a>
       </div>
-      <Lottie
-        className="absolute w-screen bottom-0 left-0 md:-bottom-32"
-        loop
-        animationData={bubbles}
-        play
-        style={{ zIndex: -1 }}
-      />
+      <div className="absolute w-screen bottom-0 left-0 lg:hidden" style={{ zIndex: -1 }}>
+        <Lottie loop animationData={bubbles} play />
+      </div>
     </footer>
   );
 }
